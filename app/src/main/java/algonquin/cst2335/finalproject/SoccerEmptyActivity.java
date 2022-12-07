@@ -8,7 +8,7 @@ import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import algonquin.cst2335.finalproject.SoccerActivity.Match;
+import com.example.cst2335_finalproject.SoccerActivity.Match;
 
 import java.util.ArrayList;
 
@@ -18,6 +18,8 @@ public class SoccerEmptyActivity extends AppCompatActivity {
     String url;
     VideoView videoView;
 
+    //https://stackoverflow.com/questions/22493734/android-listview-not-showing-anything/22493795
+    //https://www.rightpoint.com/rplabs/overlapping-android-fragment-new-instance-with-videoviews
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.cst2335_finalproject.SoccerActivity.Match;
+import algonquin.cst2335.finalproject.SoccerActivity.Match;
 
 import java.util.ArrayList;
 

@@ -23,12 +23,7 @@
             android:paddingBottom="50dp"
             />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="GeoData"
-            />
+
 
         <Button
             android:id="@+id/soccerButton"
@@ -38,20 +33,7 @@
             android:text="Soccer Highlights"
             />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Song Lyrics Search"
-            />
 
-        <Button
-            android:id="@+id/deezerButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Deezer Song Search"
-            />
 
     </LinearLayout>
 

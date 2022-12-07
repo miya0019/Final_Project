@@ -14,7 +14,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-
 import algonquin.cst2335.finalproject.SoccerActivity.Match;
 
 import java.util.ArrayList;
@@ -64,11 +63,11 @@ public class SoccerDetailsFragment extends Fragment {
             Match longSelectedMatch = favourites.get(position);
             alertDialogBuilder.setTitle(longSelectedMatch.getTitle() + "\n" + R.string.soccerRemoveFav);
 
-
+            //what is the message:
             alertDialogBuilder.setMessage(R.string.soccerDateIs + longSelectedMatch.getDate() + "\n\n" + R.string.team1Is + longSelectedMatch.getTeam1()
                     + "\n\n" + R.string.team2Is + longSelectedMatch.getTeam2());
 
-
+            //What the yes button does
             alertDialogBuilder.setPositiveButton(R.string.soccerYes, (click, arg) -> {
                 removeMatch(longSelectedMatch);
                 favourites.remove(position);

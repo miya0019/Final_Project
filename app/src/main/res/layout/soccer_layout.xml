@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/live_soccermatch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="49dp">
+
+    </ListView>
+
+    <GridLayout
+        android:id="@+id/action_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:columnCount="3"
+        android:rowCount="1">
+        <Button
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_column="0"
+            android:layout_marginLeft="30dp"
+            android:text="Search"></Button>
+
+        <EditText
+            android:id="@+id/input_team"
+            android:layout_width="221dp"
+            android:layout_height="match_parent"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_marginLeft="50dp"
+            android:hint=""
+            android:inputType="text" />
+
+    </GridLayout>
+
+
+</RelativeLayout>
