@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "48543118479",
+    "firebase_url": "https://pexels-e9e16-default-rtdb.firebaseio.com",
+    "project_id": "pexels-e9e16",
+    "storage_bucket": "pexels-e9e16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48543118479:android:3e2e584358b04dbefd2cfa",
+        "android_client_info": {
+          "package_name": "com.example.pexels"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48543118479-3uebscfn1lih1d95nvl9ltsttkl2ceh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq4B_sybyJWgKBmlpfDg3IcvnoxSWMAP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48543118479-3uebscfn1lih1d95nvl9ltsttkl2ceh6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48543118479:android:5c837aad26c92148fd2cfa",
+        "android_client_info": {
+          "package_name": "com.google.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48543118479-3uebscfn1lih1d95nvl9ltsttkl2ceh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq4B_sybyJWgKBmlpfDg3IcvnoxSWMAP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48543118479-3uebscfn1lih1d95nvl9ltsttkl2ceh6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
