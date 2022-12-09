@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pexels</string>
+    <string name="drawer_open">open the drawer</string>
+    <string name="drawer_close">close the drawer</string>
+    <string name="add_fav">add favourite</string>
+    <string name="set_wallpaper">set this wallpaper</string>
+    <string name="download_wallpaper">Download the wallpaper</string>
+</resources>

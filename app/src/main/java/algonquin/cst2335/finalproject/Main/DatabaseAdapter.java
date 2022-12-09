@@ -3,10 +3,13 @@ package algonquin.cst2335.finalproject.Main;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -15,20 +18,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.pexels.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-
-
 public class DatabaseAdapter extends RecyclerView.Adapter<DatabaseAdapter.Holder> {
+    //Initialize ArrayLists and context
+
     Context context;
     private ArrayList<WallpaperModel> wallpaper;
+    private static ArrayList<String> sKey = new ArrayList<>();
 
     public DatabaseAdapter(Context context, ArrayList<WallpaperModel> wallpaper, FavoriteActivity favoriteActivity) {
         this.context = context;
@@ -39,43 +37,36 @@ public class DatabaseAdapter extends RecyclerView.Adapter<DatabaseAdapter.Holder
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.single_db , parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.single_db, parent, false);
         Holder holder = new Holder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
+
+        //Load ArrayList from Room Database
+        loadArray(holder.itemView.getContext());
         WallpaperModel wallpaperModel = wallpaper.get(position);
 
         Glide.with(holder.url.getContext()).load(wallpaperModel.getOriginalUrl()).into(holder.url);
 
+        //Delete image from Room Database
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                Query applesQuery = ref.child("Favorites");
-
-                applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                            appleSnapshot.getRef().removeValue();
-                        }
-                        Toast.makeText(context, "Item Removed", Toast.LENGTH_SHORT).show();
+                for(int i = 0;i<sKey.size();i++){
+                    if(sKey.get(i).equals(wallpaperModel.getOriginalUrl())){
+                        sKey.remove(i);
+                        saveArray(view.getContext());
                     }
+                }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.e(TAG, "onCancelled", databaseError.toException());
-                    }
-                });
             }
         });
 
     }
-
 
 
     @Override
@@ -85,7 +76,7 @@ public class DatabaseAdapter extends RecyclerView.Adapter<DatabaseAdapter.Holder
 
     public static class Holder extends RecyclerView.ViewHolder {
         private ImageView url;
-        private ImageView delete;
+        private Button delete;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
@@ -95,4 +86,29 @@ public class DatabaseAdapter extends RecyclerView.Adapter<DatabaseAdapter.Holder
 
     }
 
+    public static boolean saveArray(Context context) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor mEdit1 = sp.edit();
+        /* sKey is an array */
+        mEdit1.putInt("Status_size", sKey.size());
+
+        for (int i = 0; i < sKey.size(); i++) {
+            mEdit1.remove("Status_" + i);
+            mEdit1.putString("Status_" + i, sKey.get(i));
+        }
+        return mEdit1.commit();
+    }
+
+    public static void loadArray(Context mContext)
+    {
+        SharedPreferences mSharedPreference1 =   PreferenceManager.getDefaultSharedPreferences(mContext);
+        sKey.clear();
+        int size = mSharedPreference1.getInt("Status_size", 0);
+
+        for(int i=0;i<size;i++)
+        {
+            sKey.add(mSharedPreference1.getString("Status_" + i, null));
+        }
+
+    }
 }

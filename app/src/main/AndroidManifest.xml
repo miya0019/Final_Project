@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -36,7 +37,8 @@
         </activity>
         <activity
             android:name="algonquin.cst2335.finalproject.Jashan_Main_Activity"
-            android:exported="false">
+            android:exported="false" android:theme="@style/Theme.AppCompat.NoActionBar">
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
