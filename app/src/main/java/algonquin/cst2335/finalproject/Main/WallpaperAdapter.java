@@ -1,23 +1,26 @@
-package algonquin.cst2335.finalproject;
+package algonquin.cst2335.finalproject.Main;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.pexels.R;
 
 import java.util.List;
 
-public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperViewHolder> {
+public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperAdapter.WallpaperViewHolder> {
 
-    private Context context;
-    private List<WallpaperModel> wallpaperModelList;
+    public Context context;
+    public static List<WallpaperModel> wallpaperModelList;
 
     public WallpaperAdapter(Context context, List<WallpaperModel> wallpaperModelList) {
         this.context = context;
@@ -32,27 +35,39 @@ public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull WallpaperViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull WallpaperViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         Glide.with(context).load(wallpaperModelList.get(position).getMediumUrl()).into(holder.imageView);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context,FullScreenWallpaper.class)
+                context.startActivity(new Intent(context, FullScreenWallpaper.class)
                 .putExtra("originalUrl",wallpaperModelList.get(position).getOriginalUrl()));
             }
         });
+
     }
+
+//    public boolean removeItem(int position){
+////        wallpaperModelList.remove(position);
+////        notifyItemRemoved(position);
+////        notifyItemRangeChanged(position, wallpaperModelList.size());
+////        return true;
+////    }
 
     @Override
     public int getItemCount() {
         return wallpaperModelList.size();
     }
-}
-class WallpaperViewHolder extends RecyclerView.ViewHolder{
-    ImageView imageView;
-    public WallpaperViewHolder(@NonNull View itemView) {
-        super(itemView);
-        imageView=itemView.findViewById(R.id.imageViewItem);
+
+    public static class WallpaperViewHolder extends RecyclerView.ViewHolder{
+        ImageView imageView;
+
+        public WallpaperViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imageView=itemView.findViewById(R.id.imageViewItem);
+
+        }
     }
 }
+

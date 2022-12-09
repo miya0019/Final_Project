@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace 'algonquin.cst2335.finalproject'
+    namespace 'com.example.pexels'
     compileSdk 32
 
 
 
     defaultConfig {
-        applicationId "algonquin.cst2335.finalproject"
+        applicationId "com.example.pexels"
         minSdk 22
         targetSdk 32
         versionCode 1

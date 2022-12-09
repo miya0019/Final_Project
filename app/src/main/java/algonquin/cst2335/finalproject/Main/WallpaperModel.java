@@ -1,4 +1,4 @@
-package algonquin.cst2335.finalproject;
+package algonquin.cst2335.finalproject.Main;
 
 public class WallpaperModel {
     private int id;

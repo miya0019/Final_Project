@@ -14,35 +14,49 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".Splash_Screen"
+            android:name="algonquin.cst2335.finalproject.Main.FavoriteActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Jashan_Main_Activity"
+            android:name="algonquin.cst2335.finalproject.Main.FullScreenWallpaper"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Sonika_Main_Activity"
+            android:name="algonquin.cst2335.finalproject.Main.MainActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Parth_Main_Activity"
+            android:name="algonquin.cst2335.finalproject.Jashan_Main_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="algonquin.cst2335.finalproject.Sonika_Main_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="algonquin.cst2335.finalproject.Parth_Main_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="algonquin.cst2335.finalproject.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

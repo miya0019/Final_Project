@@ -1,12 +1,5 @@
-package algonquin.cst2335.finalproject;
+package algonquin.cst2335.finalproject.Main;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +11,12 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -37,12 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import algonquin.cst2335.finalproject.Main.FavoriteActivity;
-import algonquin.cst2335.finalproject.Main.WallpaperAdapter;
-import algonquin.cst2335.finalproject.Main.WallpaperAdapter;
-import algonquin.cst2335.finalproject.Main.WallpaperModel;
-
-public class Jashan_Main_Activity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     WallpaperAdapter wallpaperAdapter;
@@ -53,14 +47,17 @@ public class Jashan_Main_Activity extends AppCompatActivity {
     int currentItems,totalItems,scrollOutItems;
     String url ="https://api.pexels.com/v1/curated/?page="+pageNumber+"&per_page=80";
 
-    @SuppressLint("MissingInflatedId")
+    /**
+     *  This is the onCreate method.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jashan_main);
+        setContentView(R.layout.activity_main2);
 
         /* Alert Dialog */
-//
+
 //      Button viewFav = findViewById(R.id.viewFav);
 //        viewFav.setOnClickListener(new View.OnClickListener() {
 //
@@ -119,37 +116,37 @@ public class Jashan_Main_Activity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        try{
-                            JSONObject jsonObject = new JSONObject(response);
+                      try{
+                          JSONObject jsonObject = new JSONObject(response);
 
-                            JSONArray jsonArray= jsonObject.getJSONArray("photos");
+                          JSONArray jsonArray= jsonObject.getJSONArray("photos");
 
-                            int length = jsonArray.length();
+                          int length = jsonArray.length();
 
-                            for(int i=0;i<length;i++){
+                          for(int i=0;i<length;i++){
 
-                                JSONObject object = jsonArray.getJSONObject(i);
+                            JSONObject object = jsonArray.getJSONObject(i);
 
-                                int id = object.getInt("id");
+                            int id = object.getInt("id");
 
-                                JSONObject objectImages = object.getJSONObject("src");
+                            JSONObject objectImages = object.getJSONObject("src");
 
-                                String orignalUrl = objectImages.getString("original");
-                                String mediumUrl = objectImages.getString("medium");
+                            String orignalUrl = objectImages.getString("original");
+                            String mediumUrl = objectImages.getString("medium");
 
-                                WallpaperModel wallpaperModel = new WallpaperModel(id,orignalUrl,mediumUrl);
-                                wallpaperModelList.add(wallpaperModel);
+                            WallpaperModel wallpaperModel = new WallpaperModel(id,orignalUrl,mediumUrl);
+                            wallpaperModelList.add(wallpaperModel);
 
 
 
-                            }
+                          }
 
-                            wallpaperAdapter.notifyDataSetChanged();
-                            pageNumber++;
+                          wallpaperAdapter.notifyDataSetChanged();
+                          pageNumber++;
 
-                        }catch (JSONException e){
+                      }catch (JSONException e){
 
-                        }
+                      }
 
 
 

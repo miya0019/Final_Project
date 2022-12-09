@@ -1,4 +1,4 @@
-package algonquin.cst2335.finalproject;
+package algonquin.cst2335.finalproject.Main;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import algonquin.cst2335.finalproject.WallpaperModel;
+import com.example.pexels.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +23,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
+
 
 public class DatabaseAdapter extends RecyclerView.Adapter<DatabaseAdapter.Holder> {
     Context context;

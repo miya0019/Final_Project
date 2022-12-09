@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black"
-    tools:context=".FullScreenWallpaper">
+    tools:context="algonquin.cst2335.finalproject.Main.FullScreenWallpaper">
 
     <com.github.chrisbanes.photoview.PhotoView
         android:layout_width="match_parent"

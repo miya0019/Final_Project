@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.pexels.R;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView img1, img2, img3;
